@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion><!--maven的模型版本，固定4.0.0，可兼容之前版本-->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.1.0</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+    <groupId>cn.people</groupId>
+    <artifactId>bliss</artifactId>
+    <version>${revision}</version>
+    <packaging>pom</packaging><!--作为父工程打包方式必须是pom-->
+
+    <name>${application.name}</name>
+    <description>作为顶级父工程，包含依赖管理</description>
+
+    <!--基本固定这三个模块，多的模块全在子级目录，如果使用cloud版本，多加一个gateway即可-->
+    <modules>
+        <module>api</module><!--api接口-->
+        <module>biz</module><!--业务实现-->
+        <module>common</module><!--公共-->
+        <module>framework</module>
+        <module>start</module>
+    </modules>
+
+    <properties>
+        <!--version和父级的version中都可以使用该变量，其他自定义变量则不行-->
+        <revision>0.0.1-snapshot</revision>
+        <spring-boot.version>3.1.0</spring-boot.version><!--这里注意和parent节点中的版本保持一致-->
+
+        <application.name>幸福框架</application.name><!--项目名称-->
+        <application.version>${revision}</application.version><!--项目版本-->
+
+        <java.version>17</java.version>
+        <!-- maven-compiler-plugin 将会使用指定的 JDK 版本将 java 文件编译为 class 文件（针对编译运行环境） -->
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+        <!-- maven-compiler-plugin 将会使用指定的 JDK 版本对源代码进行编译（针对编译运行环境） -->
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies><!--这些最好的做法是放在直接父级工程里去做依赖管理，然后再导入父级的坐标，但是这样会导致循环依赖，暂时没有好的解决办法-->
+            <dependency><!--api-->
+                <groupId>cn.people.bliss</groupId>
+                <artifactId>api-bom</artifactId>
+                <version>${project.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>cn.people.bliss</groupId>
+                <artifactId>biz-bom</artifactId>
+                <version>${project.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+
+            <dependency>
+                <groupId>cn.people.bliss</groupId>
+                <artifactId>common</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>cn.people.bliss</groupId>
+                <artifactId>framework-bom</artifactId>
+                <version>${project.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+
+    <build>
+<!--        <pluginManagement></pluginManagement>-->
+
+        <plugins>
+
+        </plugins>
+    </build>
+
+</project>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>cn.people.bliss</groupId>
+        <artifactId>biz</artifactId>
+        <version>${revision}</version>
+    </parent>
+
+    <artifactId>biz-system</artifactId>
+
+    <name>系统功能</name>
+    <description>系统功能：提供基础的系统管理功能，如：字典、菜单、用户、角色</description>
+
+    <dependencies>
+        <dependency>
+            <groupId>cn.people.bliss</groupId>
+            <artifactId>api-system</artifactId>
+        </dependency>
+    </dependencies>
+</project>

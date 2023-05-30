@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>cn.people</groupId>
+        <artifactId>bliss</artifactId>
+        <version>${revision}</version>
+    </parent>
+
+    <groupId>cn.people.bliss</groupId>
+    <artifactId>framework</artifactId>
+    <packaging>pom</packaging>
+
+    <name>框架</name>
+    <description>框架模块，此包块包含各个项目中使用到的框架starter</description>
+    <modules>
+        <module>web-spring-boot-starter</module>
+        <module>framework-bom</module>
+    </modules>
+
+    <dependencies>
+        <dependency><!--公共模块-->
+            <groupId>cn.people.bliss</groupId>
+            <artifactId>common</artifactId>
+        </dependency>
+    </dependencies>
+</project>

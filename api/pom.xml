@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>cn.people</groupId>
+        <artifactId>bliss</artifactId>
+        <version>${revision}</version>
+    </parent>
+
+    <groupId>cn.people.bliss</groupId>
+    <artifactId>api</artifactId>
+    <packaging>pom</packaging>
+
+    <name>api</name>
+    <description>api模块集合，可以提供给第三方的jar</description>
+
+    <modules>
+        <module>api-auth</module>
+        <module>api-system</module>
+        <module>api-bom</module>
+    </modules>
+
+    <dependencies>
+        <dependency><!--公共模块-->
+            <groupId>cn.people.bliss</groupId>
+            <artifactId>web-spring-boot-starter</artifactId>
+        </dependency>
+    </dependencies>
+
+</project>

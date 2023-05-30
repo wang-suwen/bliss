@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>cn.people.bliss</groupId>
+    <artifactId>api-bom</artifactId>
+    <version>${revision}</version>
+    <packaging>pom</packaging>
+
+    <description>api的bom</description>
+
+    <properties>
+        <revision>0.0.1-snapshot</revision>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency><!--认证-->
+                <groupId>cn.people.bliss</groupId>
+                <artifactId>api-auth</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency><!--系统-->
+                <groupId>cn.people.bliss</groupId>
+                <artifactId>api-system</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+</project>
